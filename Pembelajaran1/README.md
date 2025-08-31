@@ -37,8 +37,7 @@ Dengan adanya WWW, informasi bisa diakses secara publik dari berbagai belahan du
 ### 🔹 Hosting & Domain
 - **Hosting**: ibarat sebuah rumah yang menyimpan semua data website (file, gambar, database).  
 - **Domain**: alamat unik yang digunakan untuk mengakses rumah tersebut.  
-Contoh:  
-- Domain: `www.google.com`  
+- Contoh Domain: `www.google.com`  
 - Hosting: tempat server Google menyimpan semua data yang kita akses setiap hari.  
 
 > Tanpa domain dan hosting, website hanya akan tersimpan secara lokal di komputer kita.
