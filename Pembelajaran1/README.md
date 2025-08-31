@@ -61,9 +61,11 @@ Dengan mengetik cepat dan akurat, kita bisa:
 Saya sedang melatih kemampuan mengetik secara konsisten.  
 Berikut adalah hasil latihan terbaru saya (akan terus saya update):  
 
-- ⌨️ **Kecepatan:** ... WPM  
-- 🎯 **Akurasi:** ... %  
-- 📅 **Tanggal update terakhir:** ...  
+- ⌨️ **Kecepatan:** 51 WPM  
+- 🎯 **Akurasi:** 94 %  
+- 📅 **Tanggal update terakhir:** 31-08-2025  
+
+<img width="369" height="486" alt="Screenshot 2025-08-31 162609" src="https://github.com/user-attachments/assets/2b24ef2e-3c3c-42ef-b0b9-e8f0edde76c7" />
 
 ---
 
