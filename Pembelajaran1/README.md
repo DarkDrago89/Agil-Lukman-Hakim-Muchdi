@@ -57,17 +57,6 @@ Dengan mengetik cepat dan akurat, kita bisa:
 
 ---
 
-## 🛠️ Skill Saya
-Berikut adalah daftar skill yang sedang saya pelajari dan kembangkan:
-
-- [x] **HTML & CSS Dasar** → Membuat halaman web sederhana  
-- [x] **Pemahaman HTTP, Hypertext, FTP, WWW** → Dasar teori internet  
-- [ ] **JavaScript** → Membuat website menjadi interaktif  
-- [ ] **Backend (PHP, Node.js, atau Python Flask/Django)** → Membuat sistem di balik layar (server-side)  
-- [ ] **Database (MySQL / MongoDB)** → Menyimpan dan mengelola data  
-
----
-
 ## 📈 Perjalanan Mengetik Saya
 Saya sedang melatih kemampuan mengetik secara konsisten.  
 Berikut adalah hasil latihan terbaru saya (akan terus saya update):  
