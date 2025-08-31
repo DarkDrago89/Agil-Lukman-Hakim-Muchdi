@@ -1,4 +1,4 @@
-# 🌐 Belajar Dasar-Dasar Internet & Web
+# 🌐 Apa skills yang paling penting sebagai seorang programmer?
 
 Selamat datang di catatan perjalanan saya mempelajari **Web Programming** 🚀  
 Repository ini saya gunakan sebagai semacam **blog pribadi** untuk mendokumentasikan pemahaman saya tentang dasar-dasar internet, web, serta skill lain yang mendukung, seperti mengetik cepat.
