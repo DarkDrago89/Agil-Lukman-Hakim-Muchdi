@@ -10,3 +10,5 @@
 
 
 ## **<a href="./Pembelajaran1/README.md" style="color: inherit; text-decoration: none;">Pemrograman Website 1 : Menguasai skill mengetik atau typing</a>**
+
+## **<a href="./Pembelajaran2/README.md" style="color: inherit; text-decoration: none;">Pemrograman Website 2 : Membuat CV dengan HTML</a>**
