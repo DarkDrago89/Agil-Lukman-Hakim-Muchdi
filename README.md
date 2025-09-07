@@ -4,7 +4,7 @@
 
 #### Institut Teknologi Sepuluh Nopember
 
-#### Newbie Programming
+#### Newbie Programmer
 
 ### __Pemrograman Website__
 
