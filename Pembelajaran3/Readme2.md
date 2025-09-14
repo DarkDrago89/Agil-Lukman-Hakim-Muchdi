@@ -43,4 +43,12 @@ Tips kunjungan (bawa kamera, datang sore/sunrise, dll).
 
 ## 4. Konsep Website
 
-Untuk konsep sendiri mungkin akan menggunakan template-template umum yang beredar di internet dikarenakan belum adanya gambaran detail mengenai landing page nanti.
+Judul Website: “Explore Pantai Kenjeran”
+Tagline: “Liburan Santai, Pemandangan Menawan”
+
+Fitur utama:
+- Tombol CTA: “Kunjungi Info Resmi” yang mengarah ke link terkait
+- Galeri foto dan video: Menampilkan panorama pantai dan aktivitas wisata (perahu, bermain pasir, kuliner)
+- Halaman kuliner: Menjelaskan makanan khas yang ada di sekitar pantai
+- Desain responsif: Tampil rapi di HP dan laptop
+- SEO-friendly: Gunakan meta deskripsi, judul jelas, dan alt text pada gambar
