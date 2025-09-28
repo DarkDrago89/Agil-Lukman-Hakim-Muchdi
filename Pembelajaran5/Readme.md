@@ -1,8 +1,8 @@
-# Latihan Javascript
+# 🌐 Latihan Javascript
 
 ## 1. Web : [Form Regist](https://darkdrago89.github.io/)
 ### Sebuah form registrasi yang terdiri dari nama mahasiswa, nim, mata kuliah, dan dosen. Form registrasi ini memiliki aturan sebagai berikut. Ketika pengguna sistem akan mengisikan data nama dengan memasukkan huruf tertentu maka akan muncul rekomendasi tertentu.
-## Code .html
+## Code
 ``` html
 <!DOCTYPE html>
 <html lang="id">
@@ -138,11 +138,11 @@
 
 </body>
 </html>
-
 ```
 
 ## 2. Web : [Kode Pos](https://darkdrago89.github.io/P5Nomer2/)
 ### Menampilkan kode pos berdasarkan input provinsi, kabupaten/kota, Kecamatan, dan Kelurahan/Desa
+## Code
 ```html
 <!DOCTYPE html>
 <html lang="id">
@@ -344,4 +344,112 @@
 </html>
 ```
 
-## 3. 
+## 3. [Dropdown List](https://darkdrago89.github.io/P5Nomer3/)
+### Membuat dropdown list dengan jenis-jenis motor dan mobil
+## Code
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Dropdown Dinamis Kendaraan</title>
+  <style>
+    body { font-family: Arial; margin: 30px; }
+    label { display: block; margin-top: 15px; }
+    select { width: 200px; padding: 5px; }
+  </style>
+</head>
+<body>
+
+  <h2>Form Kendaraan</h2>
+
+  <label>Jenis Kendaraan:</label>
+  <select id="selJenis">
+    <option value="">-- Pilih Jenis --</option>
+  </select>
+
+  <label>Merk:</label>
+  <select id="selMerk" disabled>
+    <option value="">-- Pilih Merk --</option>
+  </select>
+
+  <label>Model:</label>
+  <select id="selModel" disabled>
+    <option value="">-- Pilih Model --</option>
+  </select>
+
+  <script>
+    const selJenis = document.getElementById("selJenis");
+    const selMerk = document.getElementById("selMerk");
+    const selModel = document.getElementById("selModel");
+
+    const dataKendaraan = {
+      "Motor": {
+        "Yamaha": ["NMAX", "Aerox", "Vixion"],
+        "Honda": ["Beat", "Vario", "CBR"],
+        "Kawasaki": ["Ninja", "Z1000"],
+      },
+      "Mobil": {
+        "Toyota": ["Avanza", "Innova", "GR Yaris"],
+        "Honda": ["Civic", "Accord", "BR-V"],
+        "Suzuki": ["Swift", "Ertiga"],
+      }
+    };
+
+    // Isi dropdown jenis
+    Object.keys(dataKendaraan).forEach(jenis => {
+      const opt = document.createElement("option");
+      opt.value = jenis;
+      opt.textContent = jenis;
+      selJenis.appendChild(opt);
+    });
+
+    selJenis.addEventListener("change", () => {
+      const jenisTerpilih = selJenis.value;
+
+      // Reset merk & model
+      selMerk.innerHTML = `<option value="">-- Pilih Merk --</option>`;
+      selModel.innerHTML = `<option value="">-- Pilih Model --</option>`;
+      selModel.disabled = true;
+
+      if (jenisTerpilih === "") {
+        selMerk.disabled = true;
+        return;
+      }
+
+      const merkList = dataKendaraan[jenisTerpilih];
+      Object.keys(merkList).forEach(merk => {
+        const opt = document.createElement("option");
+        opt.value = merk;
+        opt.textContent = merk;
+        selMerk.appendChild(opt);
+      });
+      selMerk.disabled = false;
+    });
+
+    selMerk.addEventListener("change", () => {
+      const jenisTerpilih = selJenis.value;
+      const merkTerpilih = selMerk.value;
+
+      // Reset model
+      selModel.innerHTML = `<option value="">-- Pilih Model --</option>`;
+
+      if (merkTerpilih === "") {
+        selModel.disabled = true;
+        return;
+      }
+
+      const modelList = dataKendaraan[jenisTerpilih][merkTerpilih];
+      modelList.forEach(model => {
+        const opt = document.createElement("option");
+        opt.value = model;
+        opt.textContent = model;
+        selModel.appendChild(opt);
+      });
+      selModel.disabled = false;
+    });
+  </script>
+
+</body>
+</html>
+```
