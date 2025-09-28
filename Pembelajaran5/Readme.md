@@ -1,7 +1,7 @@
 # Latihan Javascript
 
-## 1. Web : [DarkDrago89.github.io](https://darkdrago89.github.io/)
-### Buatlah sebuah form registrasi yang terdiri dari nama mahasiswa, nim, mata kuliah, dan dosen. Form registrasi ini memiliki aturan sebagai berikut. Ketika pengguna sistem akan mengisikan data nama dengan memasukkan huruf tertentu maka akan muncul rekomendasi tertentu. Gunakan referensi di internet ataupun yang lainnya untuk memecahkan kasus tersebut.
+## 1. Web : [Form Regist](https://darkdrago89.github.io/)
+### Sebuah form registrasi yang terdiri dari nama mahasiswa, nim, mata kuliah, dan dosen. Form registrasi ini memiliki aturan sebagai berikut. Ketika pengguna sistem akan mengisikan data nama dengan memasukkan huruf tertentu maka akan muncul rekomendasi tertentu.
 ## Code .html
 ``` html
 <!DOCTYPE html>
@@ -141,4 +141,207 @@
 
 ```
 
+## 2. Web : [Kode Pos](https://darkdrago89.github.io/P5Nomer2/)
+### Menampilkan kode pos berdasarkan input provinsi, kabupaten/kota, Kecamatan, dan Kelurahan/Desa
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cari Kode Pos</title>
+  <style>
+    body { font-family: sans-serif; margin: 20px; }
+    select { margin: 8px 0; padding: 5px; width: 100%; max-width: 300px; }
+    .result { margin-top: 20px; }
+    .alamat { margin-top: 10px; font-style: italic; }
+  </style>
+</head>
+<body>
+  <h2>Cari Kode Pos (dengan Desa / Kelurahan)</h2>
 
+  <label for="provinsi">Provinsi:</label><br>
+  <select id="provinsi">
+    <option value="">-- Pilih Provinsi --</option>
+  </select><br>
+
+  <label for="kabkota">Kabupaten / Kota:</label><br>
+  <select id="kabkota" disabled>
+    <option value="">-- Pilih Kabupaten / Kota --</option>
+  </select><br>
+
+  <label for="kecamatan">Kecamatan:</label><br>
+  <select id="kecamatan" disabled>
+    <option value="">-- Pilih Kecamatan --</option>
+  </select><br>
+
+  <label for="desa">Desa / Kelurahan:</label><br>
+  <select id="desa" disabled>
+    <option value="">-- Pilih Desa / Kelurahan --</option>
+  </select><br>
+
+  <div class="result" id="hasilKodePos"></div>
+  <div class="alamat" id="alamatTerpilih"></div>
+
+  <script>
+    const BASE = 'https://alamat.thecloudalert.com/api';
+
+    const selProv = document.getElementById('provinsi');
+    const selKab = document.getElementById('kabkota');
+    const selKec = document.getElementById('kecamatan');
+    const selDesa = document.getElementById('desa');
+    const divHasil = document.getElementById('hasilKodePos');
+    const divAlamat = document.getElementById('alamatTerpilih');
+
+    async function fetchAPI(path, params = {}) {
+      const url = new URL(BASE + path);
+      Object.entries(params).forEach(([k, v]) => {
+        if (v !== undefined && v !== null && v !== '') {
+          url.searchParams.append(k, v);
+        }
+      });
+      const resp = await fetch(url.toString());
+      if (!resp.ok) {
+        throw new Error(`HTTP ${resp.status} saat fetch ${url.toString()}`);
+      }
+      const json = await resp.json();
+      return json;
+    }
+
+    async function loadProvinsi() {
+      try {
+        const res = await fetchAPI('/provinsi/get/');
+        if (res.result && Array.isArray(res.result)) {
+          res.result.forEach(p => {
+            const opt = document.createElement('option');
+            opt.value = p.id;
+            opt.text = p.text;
+            selProv.add(opt);
+          });
+        }
+      } catch (err) {
+        console.error('Error loadProvinsi:', err);
+        divHasil.innerText = 'Gagal memuat provinsi.';
+      }
+    }
+
+    selProv.addEventListener('change', async () => {
+      const provId = selProv.value;
+      selKab.innerHTML = `<option value="">-- Pilih Kabupaten / Kota --</option>`;
+      selKec.innerHTML = `<option value="">-- Pilih Kecamatan --</option>`;
+      selDesa.innerHTML = `<option value="">-- Pilih Desa / Kelurahan --</option>`;
+      divHasil.innerText = '';
+      divAlamat.innerText = '';
+      selKab.disabled = true;
+      selKec.disabled = true;
+      selDesa.disabled = true;
+      if (!provId) return;
+
+      try {
+        const res = await fetchAPI('/kabkota/get/', { d_provinsi_id: provId });
+        if (res.result && Array.isArray(res.result)) {
+          res.result.forEach(k => {
+            const opt = document.createElement('option');
+            opt.value = k.id;
+            opt.text = k.text;
+            selKab.add(opt);
+          });
+          selKab.disabled = false;
+        }
+      } catch (err) {
+        console.error('Error loadKabkota:', err);
+        divHasil.innerText = 'Gagal memuat kabupaten / kota.';
+      }
+    });
+
+    selKab.addEventListener('change', async () => {
+      const kabId = selKab.value;
+      selKec.innerHTML = `<option value="">-- Pilih Kecamatan --</option>`;
+      selDesa.innerHTML = `<option value="">-- Pilih Desa / Kelurahan --</option>`;
+      divHasil.innerText = '';
+      divAlamat.innerText = '';
+      selKec.disabled = true;
+      selDesa.disabled = true;
+      if (!kabId) return;
+
+      try {
+        const res = await fetchAPI('/kecamatan/get/', { d_kabkota_id: kabId });
+        if (res.result && Array.isArray(res.result)) {
+          res.result.forEach(kec => {
+            const opt = document.createElement('option');
+            opt.value = kec.id;
+            opt.text = kec.text;
+            selKec.add(opt);
+          });
+          selKec.disabled = false;
+        }
+      } catch (err) {
+        console.error('Error loadKecamatan:', err);
+        divHasil.innerText = 'Gagal memuat kecamatan.';
+      }
+    });
+
+    selKec.addEventListener('change', async () => {
+      const kecId = selKec.value;
+      selDesa.innerHTML = `<option value="">-- Pilih Desa / Kelurahan --</option>`;
+      divHasil.innerText = '';
+      divAlamat.innerText = '';
+      selDesa.disabled = true;
+      if (!kecId) return;
+
+      try {
+        const res = await fetchAPI('/kelurahan/get/', { d_kecamatan_id: kecId });
+        if (res.result && Array.isArray(res.result)) {
+          res.result.forEach(desa => {
+            const opt = document.createElement('option');
+            opt.value = desa.id;
+            opt.text = desa.text;
+            selDesa.add(opt);
+          });
+          selDesa.disabled = false;
+        }
+      } catch (err) {
+        console.error('Error loadDesa:', err);
+        divHasil.innerText = 'Gagal memuat desa / kelurahan.';
+      }
+    });
+
+    selDesa.addEventListener('change', async () => {
+      const kabId = selKab.value;
+      const kecId = selKec.value;
+      const desaId = selDesa.value;
+      divHasil.innerText = '';
+      divAlamat.innerText = '';
+
+      if (!kabId || !kecId || !desaId) return;
+
+      // Tampilkan alamat lengkap
+      const namaProv = selProv.options[selProv.selectedIndex].text;
+      const namaKab = selKab.options[selKab.selectedIndex].text;
+      const namaKec = selKec.options[selKec.selectedIndex].text;
+      const namaDesa = selDesa.options[selDesa.selectedIndex].text;
+      divAlamat.innerText = `Alamat: ${namaDesa}, ${namaKec}, ${namaKab}, ${namaProv}`;
+
+      try {
+        const res = await fetchAPI('/kodepos/get/', { d_kabkota_id: kabId, d_kecamatan_id: kecId });
+        if (res.result && Array.isArray(res.result) && res.result.length > 0) {
+          // ambil satu kode pos (misalnya pertama)
+          const kode = res.result[0].text;
+          divHasil.innerHTML = `<strong>Kode Pos:</strong> ${kode}`;
+        } else {
+          divHasil.innerText = 'Kode pos tidak ditemukan.';
+        }
+      } catch (err) {
+        console.error('Error loadKodepos:', err);
+        divHasil.innerText = 'Gagal memuat kode pos.';
+      }
+    });
+
+    // Inisialisasi
+    loadProvinsi();
+  </script>
+</body>
+</html>
+```
+
+## 3. 
