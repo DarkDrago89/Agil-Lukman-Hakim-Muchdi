@@ -344,7 +344,7 @@
 </html>
 ```
 
-## 3. [Dropdown List](https://darkdrago89.github.io/P5Nomer3/)
+## 3. Web : [Dropdown List](https://darkdrago89.github.io/P5Nomer3/)
 ### Membuat dropdown list dengan jenis-jenis motor dan mobil
 ## Code
 ```html
