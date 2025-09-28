@@ -141,7 +141,7 @@
 ```
 
 ## 2. Web : [Kode Pos](https://darkdrago89.github.io/P5Nomer2/)
-### Menampilkan kode pos berdasarkan input provinsi, kabupaten/kota, Kecamatan, dan Kelurahan/Desa
+### Menampilkan kode pos berdasarkan input provinsi, kabupaten/kota, Kecamatan, dan Kelurahan/Desa.
 ## Code
 ```html
 <!DOCTYPE html>
@@ -345,7 +345,7 @@
 ```
 
 ## 3. Web : [Dropdown List](https://darkdrago89.github.io/P5Nomer3/)
-### Membuat dropdown list dengan jenis-jenis motor dan mobil
+### Membuat dropdown list dengan jenis-jenis motor dan mobil.
 ## Code
 ```html
 <!DOCTYPE html>
