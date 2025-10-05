@@ -1,6 +1,6 @@
 # Pelatihan Bootstrap
 
-## 1. Membuat Halaman Konten : (Bimbel)[https://darkdrago89.github.io/Bootstrap1]
+## 1. Membuat Halaman Konten : [Bimbel](https://darkdrago89.github.io/Bootstrap1)
 
 Sudah dibuat raw untuk Bootstraps-nya, saya mengganti beberapa elemen yang ada dan menambahkan beberapa konten didalamnya. Tidak lupa saya juga menginput link untuk pembelajarannya.
 
@@ -216,7 +216,7 @@ Sudah dibuat raw untuk Bootstraps-nya, saya mengganti beberapa elemen yang ada d
 </html>
 ```
 
-## 2. Membuat Register : (Register)[https://darkdrago89.github.io/Register1]
+## 2. Membuat Register : [Register](https://darkdrago89.github.io/Register1)
 
 Diberikan contoh dan dibuat menggunakan Bootstraps
 
