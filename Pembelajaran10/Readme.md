@@ -1,4 +1,4 @@
-# 🌐 Rencana Pembuatan Web 
+# 🌐 Rencana Spesifikasi Web
 
 Rencana ini mungkin dapat berubah sewaktu-waktu mengikuti dari kebutuhan dan kemampuan saya dalam membuat, mengelola hingga mendeploy website tersebut.
 
